@@ -10,6 +10,7 @@ export const renderForm = () => {
         id="add-form-name"
         class="add-form-name"
         placeholder="Введите ваше имя"
+        readonly
     />
     <textarea
         id="add-form-text"

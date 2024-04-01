@@ -33,10 +33,10 @@ export const renderComments = ({ comments, likeEventListener, replyEventListener
     listElement.innerHTML = commentsHtml;
 
     if (user) {
-        const nameElement = document.getElementById("add-form-name");
-        const textElement = document.getElementById("add-form-text");
-        const buttonElement = document.getElementById("add-form-button");
-
+        //document.getElementById('add-form-name').readOnly = true;
+        const nameElement = document.getElementById('add-form-name');
+        const textElement = document.getElementById('add-form-text');
+        const buttonElement = document.getElementById('add-form-button');
 
         buttonElement.addEventListener("click", () => {
             nameElement.classList.remove("error");
@@ -83,10 +83,8 @@ export const renderComments = ({ comments, likeEventListener, replyEventListener
             fetchPromisePost();
         });
         replyEventListener();
+        likeEventListener();
     }
-    
-    likeEventListener();
-    
 };
 
 
