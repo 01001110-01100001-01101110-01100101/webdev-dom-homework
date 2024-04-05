@@ -1,5 +1,5 @@
 import { postComment } from "./api.js";
-import { user, fetchPromiseGet } from "./main.js";
+import { token, fetchPromiseGet } from "./main.js";
 import { format } from "date-fns";
 
 export const renderComments = ({ comments, likeEventListener, replyEventListener }) => {
@@ -32,7 +32,7 @@ export const renderComments = ({ comments, likeEventListener, replyEventListener
     .join("");
     listElement.innerHTML = commentsHtml;
 
-    if (user) {
+    if (token) {
         //document.getElementById('add-form-name').readOnly = true;
         const nameElement = document.getElementById('add-form-name');
         const textElement = document.getElementById('add-form-text');
@@ -59,7 +59,7 @@ export const renderComments = ({ comments, likeEventListener, replyEventListener
                 })
                 .then(() => {
                     textElement.value = "";
-                    nameElement.value = "";
+                    //nameElement.value = "";
                     buttonElement.disabled = false;
                     buttonElement.textContent = "Написать";
                 })

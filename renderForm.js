@@ -1,15 +1,16 @@
-import { user } from "./main.js"
+import { name, token } from "./main.js";
 import { renderLogin } from "./renderLogin.js";
 
 export const renderForm = () => {
-    const container = document.querySelector(".form")
-    container.innerHTML = user
-     ? `<div class="add-form">
+ const container = document.querySelector(".form");
+ container.innerHTML = token
+  ? `<div class="add-form">
     <input
         type="text"
         id="add-form-name"
         class="add-form-name"
         placeholder="Введите ваше имя"
+        value=${name}
         readonly
     />
     <textarea
@@ -27,12 +28,12 @@ export const renderForm = () => {
             Написать
         </button>
     </div>`
-     : `<div class="entryForm">Чтобы оставить комментарий, <button class="entryButton" >авторизуйтесь</button></div>`;
-     const entryButton = document.querySelector(".entryButton");
-     if (entryButton) {
-        entryButton.addEventListener("click", (event) => {
-            event.preventDefault();
-            renderLogin()
-        })
-     }
-}
+  : `<div class="entryForm">Чтобы оставить комментарий, <button class="entryButton" >авторизуйтесь</button></div>`;
+ const entryButton = document.querySelector(".entryButton");
+ if (entryButton) {
+  entryButton.addEventListener("click", (event) => {
+   event.preventDefault();
+   renderLogin();
+  });
+ }
+};

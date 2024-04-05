@@ -1,5 +1,5 @@
 import { loginUser } from "./api.js";
-import { renderApp, setUser, user } from "./main.js";
+import { name, renderApp, setUser, token } from "./main.js";
 
 export const renderLogin = () => {
     const container = document.querySelector(".container");
@@ -31,7 +31,7 @@ export const renderLogin = () => {
         loginButton.addEventListener("click", (event) => {
             event.preventDefault();
             loginUser({
-                 login: loginInputElement.value
+                login: loginInputElement.value
                     .replaceAll('>', '&gt;')
                     .replaceAll('<', '&lt;'),
                 password: passwordInputElement.value
@@ -42,8 +42,9 @@ export const renderLogin = () => {
                     if (response.status === 400) {
                         throw new Error('Неправильный логин или пароль');
                     } else {
-                        setUser(response.user.token);
-                        console.log(user);
+                        setUser(response.user.token, loginInputElement.value);
+                        console.log(token);
+                        console.log(name);
                         renderApp();
                     }
                 })
