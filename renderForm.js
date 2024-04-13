@@ -1,15 +1,17 @@
-import { user } from './main.js';
+import { name, token } from './main.js';
 import { renderLogin } from './renderLogin.js';
 
 export const renderForm = () => {
     const container = document.querySelector('.form');
-    container.innerHTML = user
+    container.innerHTML = token
         ? `<div class="add-form">
     <input
         type="text"
         id="add-form-name"
         class="add-form-name"
         placeholder="Введите ваше имя"
+        value=${name}
+        readonly
     />
     <textarea
         id="add-form-text"

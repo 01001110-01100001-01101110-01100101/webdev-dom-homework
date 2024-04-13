@@ -2,9 +2,11 @@ import { getComments } from './api.js';
 import { renderComments } from './render.js';
 import { renderForm } from './renderForm.js';
 
-export let user = null;
-export const setUser = (value) => {
-    user = value;
+export let token = null;
+export let name = null;
+export const setUser = (value1, value2) => {
+    token = value1;
+    name = value2;
 };
 
 export function renderApp() {
